@@ -36,15 +36,6 @@ class MovieManagerTest {
     }
 
     @Test
-    public void shouldGetAllMovies() {
-
-        Movie[] actual = manager.GetLastMovies();
-        Movie[] expected = new Movie[] {tenth, ninth, eighth, seventh, sixth,
-                fifth, fourth, third, second, first};
-        assertArrayEquals(actual, expected);
-    }
-
-    @Test
     public void shouldGetFirstMovies() {
         MovieManager manager = new MovieManager(4);
         Movie first = new Movie(1, "http1", "FilmName1", "Drama");
@@ -61,4 +52,42 @@ class MovieManagerTest {
 
 
     }
+
+    @Test
+    public void shouldGetAllMovies() {
+
+        Movie[] actual = manager.GetLastMovies();
+        Movie[] expected = new Movie[] {tenth, ninth, eighth, seventh, sixth,
+                fifth, fourth, third, second, first};
+        assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldGetIfNotMovies() {
+        MovieManager manager = new MovieManager(0);
+
+
+        Movie[] actual = manager.GetLastMovies();
+        Movie[] expected = new Movie[] {};
+        assertArrayEquals(actual, expected);
+
+
+    }
+
+    @Test
+    public void shouldGeIfOneMovie() {
+        MovieManager manager = new MovieManager(1);
+        Movie first = new Movie(1, "http1", "FilmName1", "Drama");
+
+
+        manager.add(first);
+
+
+        Movie[] actual = manager.GetLastMovies();
+        Movie[] expected = new Movie[] {first};
+        assertArrayEquals(actual, expected);
+
+
+    }
+
 }
