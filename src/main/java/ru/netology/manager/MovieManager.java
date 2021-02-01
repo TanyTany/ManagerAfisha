@@ -1,10 +1,17 @@
 package ru.netology.manager;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.netology.domain.Movie;
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 
 public class MovieManager {
     private int countMov;
+
+
 
     public MovieManager(int countMov) {
         this.countMov = countMov;
@@ -34,7 +41,7 @@ public class MovieManager {
         return result;
     }
 
-    public Movie[] GetLastMovies() {
+    public Movie[] getLastMovies() {
         Movie[] movie = new Movie[movies.length];
         if (movies.length <= countMov) {
             for (int i = 0; i < movies.length; i++) {

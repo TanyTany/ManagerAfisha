@@ -46,7 +46,7 @@ class MovieManagerTest {
         manager.add(second);
         manager.add(third);
 
-        Movie[] actual = manager.GetLastMovies();
+        Movie[] actual = manager.getLastMovies();
         Movie[] expected = new Movie[] {third, second, first};
         assertArrayEquals(actual, expected);
 
@@ -56,7 +56,7 @@ class MovieManagerTest {
     @Test
     public void shouldGetAllMovies() {
 
-        Movie[] actual = manager.GetLastMovies();
+        Movie[] actual = manager.getLastMovies();
         Movie[] expected = new Movie[] {tenth, ninth, eighth, seventh, sixth,
                 fifth, fourth, third, second, first};
         assertArrayEquals(actual, expected);
@@ -67,7 +67,7 @@ class MovieManagerTest {
         MovieManager manager = new MovieManager(0);
 
 
-        Movie[] actual = manager.GetLastMovies();
+        Movie[] actual = manager.getLastMovies();
         Movie[] expected = new Movie[] {};
         assertArrayEquals(actual, expected);
 
@@ -83,7 +83,23 @@ class MovieManagerTest {
         manager.add(first);
 
 
-        Movie[] actual = manager.GetLastMovies();
+        Movie[] actual = manager.getLastMovies();
+        Movie[] expected = new Movie[] {first};
+        assertArrayEquals(actual, expected);
+
+
+    }
+
+    @Test
+    public void shouldGeIfMoreThanCountMov() {
+        MovieManager manager = new MovieManager(1);
+        Movie first = new Movie(1, "http1", "FilmName1", "Drama");
+        Movie second = new Movie(2, "http1", "FilmName1", "Drama");
+
+        manager.add(first);
+
+
+        Movie[] actual = manager.getLastMovies();
         Movie[] expected = new Movie[] {first};
         assertArrayEquals(actual, expected);
 
