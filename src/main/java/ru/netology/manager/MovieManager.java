@@ -9,7 +9,7 @@ import ru.netology.domain.Movie;
 @Data
 
 public class MovieManager {
-    private int countMov;
+    private int countMov = 10;
 
 
 
